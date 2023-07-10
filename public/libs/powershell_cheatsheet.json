@@ -1,0 +1,108 @@
+{
+  "Title": "powershell_cheatsheet",
+  "Version": "2.0",
+  "Description": "CLI",
+  "Type": "CLI",
+  "Items": [
+    {
+      "Command": "Set-Location",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003ESets the current working location to a specified location.\u003Cbr /\u003E\u003Cp\u003EAlias:  cd, chdir, sl\u003C/p\u003E\u003C/div\u003E"
+    },
+    {
+      "Command": "Get-Content",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003EGets the content of the item at the specified location.\u003Cbr /\u003E\u003Cp\u003EAlias:  cat, gc, type\u003C/p\u003E\u003C/div\u003E"
+    },
+    {
+      "Command": "Add-Content",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003EAdds content to the specified items, such as adding words to a file.\u003Cbr /\u003E\u003Cp\u003EAlias:  ac\u003C/p\u003E\u003C/div\u003E"
+    },
+    {
+      "Command": "Set-Content",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003EWrites or replaces the content in an item with new content.\u003Cbr /\u003E\u003Cp\u003EAlias:  sc\u003C/p\u003E\u003C/div\u003E"
+    },
+    {
+      "Command": "Copy-Item",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003ECopies an item from one location to another.\u003Cbr /\u003E\u003Cp\u003EAlias:  copy, cp, cpi\u003C/p\u003E\u003C/div\u003E"
+    },
+    {
+      "Command": "Remove-Item",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003EDeletes the specified items.\u003Cbr /\u003E\u003Cp\u003EAlias:  del, erase, rd, ri, rm, rmdir\u003C/p\u003E\u003C/div\u003E"
+    },
+    {
+      "Command": "Move-Item",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003EMoves an item from one location to another.\u003Cbr /\u003E\u003Cp\u003EAlias:  mi, move, mv\u003C/p\u003E\u003C/div\u003E"
+    },
+    {
+      "Command": "Set-Item",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003EChanges the value of an item to the value specified in the command.\u003Cbr /\u003E\u003Cp\u003EAlias:  si\u003C/p\u003E\u003C/div\u003E"
+    },
+    {
+      "Command": "New-Item",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003ECreates a new item.\u003Cbr /\u003E\u003Cp\u003EAlias:  ni\u003C/p\u003E\u003C/div\u003E"
+    },
+    {
+      "Command": "Start-Job",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003EStarts a Windows PowerShell background job.\u003Cbr /\u003E\u003Cp\u003EAlias:  sajb\u003C/p\u003E\u003C/div\u003E"
+    },
+    {
+      "Command": "Compare-Object",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003ECompares two sets of objects.\u003Cbr /\u003E\u003Cp\u003EAlias:  compare, dif\u003C/p\u003E\u003C/div\u003E"
+    },
+    {
+      "Command": "Group-Object",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003EGroups objects that contain the same value for specified properties.\u003Cbr /\u003E\u003Cp\u003EAlias:  group\u003C/p\u003E\u003C/div\u003E"
+    },
+    {
+      "Command": "Invoke-WebRequest",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003EGets content from a web page on the Internet.\u003Cbr /\u003E\u003Cp\u003EAlias:  curl, iwr, wget\u003C/p\u003E\u003C/div\u003E"
+    },
+    {
+      "Command": "Measure-Object",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003ECalculates the numeric properties of objects, and the characters, words, and lines in string objects, such as files.\u003Cbr /\u003E\u003Cp\u003EAlias:  measure\u003C/p\u003E\u003C/div\u003E"
+    },
+    {
+      "Command": "Resolve-Path",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003EResolves the wildcard characters in a path, and displays the path contents.\u003Cbr /\u003E\u003Cp\u003EAlias:  rvpa\u003C/p\u003E\u003C/div\u003E"
+    },
+    {
+      "Command": "Resume-Job",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003ERestarts a suspended job\u003Cbr /\u003E\u003Cp\u003EAlias:  rujb\u003C/p\u003E\u003C/div\u003E"
+    },
+    {
+      "Command": "Set-Variable",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003ESets the value of a variable. Creates the variable if one with the requested name does not exist.\u003Cbr /\u003E\u003Cp\u003EAlias:  set, sv\u003C/p\u003E\u003C/div\u003E"
+    },
+    {
+      "Command": "Show-Command",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003ECreates Windows PowerShell commands in a graphical command window.\u003Cbr /\u003E\u003Cp\u003EAlias:  shcm\u003C/p\u003E\u003C/div\u003E"
+    },
+    {
+      "Command": "Sort-Object",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003ESorts objects by property values.\u003Cbr /\u003E\u003Cp\u003EAlias:  sort\u003C/p\u003E\u003C/div\u003E"
+    },
+    {
+      "Command": "Start-Service",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003EStarts one or more stopped services.\u003Cbr /\u003E\u003Cp\u003EAlias:  sasv\u003C/p\u003E\u003C/div\u003E"
+    },
+    {
+      "Command": "Start-Process",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003EStarts one or more processes on the local computer.\u003Cbr /\u003E\u003Cp\u003EAlias:  saps, start\u003C/p\u003E\u003C/div\u003E"
+    },
+    {
+      "Command": "Suspend-Job",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003ETemporarily stops workflow jobs.\u003Cbr /\u003E\u003Cp\u003EAlias:  sujb\u003C/p\u003E\u003C/div\u003E"
+    },
+    {
+      "Command": "Wait-Job",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003ESuppresses the command prompt until one or all of the Windows PowerShell background jobs running in the session are.\u003Cbr /\u003E\u003Cp\u003EAlias:  wjb\u003C/p\u003E\u003C/div\u003E"
+    },
+    {
+      "Command": "Where-Object",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003ESelects objects from a collection based on their property values.\u003Cbr /\u003E\u003Cp\u003EAlias:  ?, where\u003C/p\u003E\u003C/div\u003E"
+    },
+    {
+      "Command": "Write-Output",
+      "Details": "\u003Cdiv\u003E\u003Cp\u003ESends the specified objects to the next command in the pipeline. If the command is the last command in the pipeline.\u003Cbr /\u003E\u003Cp\u003EAlias:  echo, write\u003C/p\u003E\u003C/div\u003E"
+    }
+  ]
+}

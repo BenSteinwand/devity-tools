@@ -1,0 +1,37 @@
+.config-gear-btn {
+    padding: 0%;
+    border-style: hidden;
+}
+
+.config-gear-btn .gear{
+    display: block;
+    width: 19px;
+    float: left;  
+    position: absolute;    
+    top: 4px;
+    left: 1px;
+}
+
+/* Jira issue table */
+.issue-horizontal td:nth-child(1) {
+    vertical-align: top;
+}
+.issue-horizontal td:nth-child(4) {
+    text-align: center;
+}
+
+
+#ai-save-single {
+    border: none;
+    display: flex;
+    float: right;
+    padding: 0 0 0 0;
+}
+#ai-save-single img {
+    width: 30px;
+    height: 30px;
+}
+
+.notes-hidden {
+    display: none;
+}

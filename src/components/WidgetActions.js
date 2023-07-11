@@ -8,8 +8,7 @@ import btn_downnload from "../img/btn_download.png"
 import $ from "jquery";
 import { useSelector } from "react-redux";
 
-
-export default function Widget(props) 
+export default function WidgetActions(props) 
 {
     const saveBtnRef = React.useRef(null);
     const axios = props.axios;
@@ -164,9 +163,9 @@ export default function Widget(props)
                     onClick={async ()=> {
                         console.log("save button clicked...");
                         if (props.isReadyToSave.isReadyToSave) {
+                            $(`#save-btn-${props.widget.id}`).hide();
                             await props.callPUTRequest(props.isReadyToSave.putBody, props.isReadyToSave.type)
                                 .then(result => {
-                                    $(`#save-btn-${props.widget.id}`).hide();
                                 });
                         } else {
                             alert("not yet ready to save! Please change something and then blur mouse pointer anywhere before saving again!");

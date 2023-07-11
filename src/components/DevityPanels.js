@@ -315,18 +315,18 @@ export default function DevityPanels({
                 modalType={402}
             />
             {
-                Object.entries(wObject).map( ([key,value], index) => {
+                Object.entries(wObject).map( ([widgetType,widgetList], index) => {
                     return (
-                        <FileUploadForm key={index} axios={axios} setReloadFlag={setReloadFlag} reloadFlag={reloadFlag} widgetType={key}>
-                            <div className="p-panel border" data-panel={key} style={{display:"none"}}>
+                        <FileUploadForm key={index} axios={axios} setReloadFlag={setReloadFlag} reloadFlag={reloadFlag} widgetType={widgetType}>
+                            <div className="p-panel border" data-panel={widgetType} style={{display:"none"}}>
                                 <div className='p-chrome'>
                                     <img src={btn_image_config} className="gear" alt="devity gear"/>
-                                    <span className="title">{key}</span>
+                                    <span className="title">{widgetType}</span>
                                     {
-                                        key === "DEVITY" ? (
+                                        widgetType === "DEVITY" ? (
                                             <img className='add' src={btn_add} onClick={() => setIsDevitySubTypeAddOpen(true)} alt="create devity" aria-hidden="true"/>
                                         ) : (
-                                            <img className='add' src={btn_add} onClick={()=>w_add(key, value)} alt="create widget" aria-hidden="true"/>
+                                            <img className='add' src={btn_add} onClick={()=>w_add(widgetType, widgetList)} alt="create widget" aria-hidden="true"/>
                                         )
                                     }
                                 </div>
@@ -335,20 +335,20 @@ export default function DevityPanels({
                                         <div className="w-add-devity" style={{display:"flex"}}>
                                             <div>
                                                 <figure>
-                                                    <img className='add-subtype' src={btn_add} onClick={()=>w_add(key, value, "RSS")} alt="create devity subtype" aria-hidden="true"/>
+                                                    <img className='add-subtype' src={btn_add} onClick={()=>w_add(widgetType, widgetList, "RSS")} alt="create devity subtype" aria-hidden="true"/>
                                                     <figcaption>RSS</figcaption>
                                                 </figure>
                                             </div>
                                             <div>
                                                 <figure>
-                                                    <img className='add-subtype' src={btn_add} onClick={()=>w_add(key, value, "JIRA")} alt="create devity subtype" aria-hidden="true"/>
+                                                    <img className='add-subtype' src={btn_add} onClick={()=>w_add(widgetType, widgetList, "JIRA")} alt="create devity subtype" aria-hidden="true"/>
                                                     <figcaption>JIRA</figcaption>
                                                 </figure>
                                             </div>
                                         </div>
                                     )
                                 }
-                                <DragDropContext onDragEnd={(result)=>onDragEnd(result, key)}>
+                                <DragDropContext onDragEnd={(result)=>onDragEnd(result, widgetType)}>
                                     <Droppable droppableId="droppable" direction="horizontal" style={{transform: "none"}}>
                                         {
                                             (provided, snapshot) => (
@@ -359,13 +359,13 @@ export default function DevityPanels({
                                                     {...provided.droppableProps}
                                                 >
                                                     {
-                                                        value.map((w, index) => {
+                                                        widgetList.map((widgetObj, index) => {
                                                             return (
-                                                                <Draggable index={index} key={w.id} draggableId={w.id}>
+                                                                <Draggable index={index} key={widgetObj.id} draggableId={widgetObj.id}>
                                                                     {
                                                                         (provided, snapshot) => (
                                                                             <div 
-                                                                                data-w_id={w.id}
+                                                                                data-w_id={widgetObj.id}
                                                                                 className="w-container min border"
                                                                                 ref={provided.innerRef}
                                                                                 {...provided.draggableProps}
@@ -376,7 +376,7 @@ export default function DevityPanels({
                                                                                     {...provided.dragHandleProps}
                                                                                 >
                                                                                     <WidgetActions
-                                                                                        widget={w}
+                                                                                        widget={widgetObj}
                                                                                         setWidgetObjState={setWObject}
                                                                                         widgetObjState={wObject}
                                                                                         inputRef={inputRef}
@@ -385,7 +385,7 @@ export default function DevityPanels({
                                                                                         axios={axios}
                                                                                     />
                                                                                 </div>
-                                                                                { w_render(w) }
+                                                                                { w_render(widgetObj) }
                                                                             </div>
                                                                         )
                                                                     }

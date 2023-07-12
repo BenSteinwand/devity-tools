@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 export function log(value) {
     console.log(value);
     return true;
@@ -48,4 +50,32 @@ export function downloadStringAsFile(text, filename) {
     anchor.click();
     document.body.removeChild(anchor);
     URL.revokeObjectURL(url);
+}
+
+export function MinimizeAll() {
+    // Find all maximized widgets
+    let maximizedWidgets = $(".max");
+
+    // Minimize each maximized widget
+    maximizedWidgets.each(function() {
+        let w = $(this);
+
+        $(w).removeClass("max");
+        $(w).addClass("min");
+
+        // Get the panel parent
+        let p = $(w).parents(".p-panel");
+        $(p).find(".w-container").show();
+        $(w).show();
+
+        $(p).find(".non-truncated").hide();
+        $(p).find(".truncated").show();
+
+        // manage widget max min buttons
+        $(w).find(".minimize").hide();
+        $(w).find(".maximize").show();
+
+        //rss text display
+        $(".rss-item").find(".rss-text").addClass("rss-min-font");
+    });
 }

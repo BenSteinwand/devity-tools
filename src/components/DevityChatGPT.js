@@ -70,6 +70,7 @@ export default function DevityChatGPT({ axios, setIsAINoteCreated, setIsDataLimi
         status: 200,
         message: ""
     });
+    const [currentIndex, setCurrentIndex] = useState(-1);
     const $ai_console = $("#ai_console");
 
     useEffect(() => {
@@ -81,6 +82,7 @@ export default function DevityChatGPT({ axios, setIsAINoteCreated, setIsDataLimi
             textarea.css("height", textarea.prop("scrollHeight") + "px");
         };
         textarea.on("input", handleLongChatInput);
+
         return () => {
             textarea.off("input", handleLongChatInput);
         };
@@ -100,7 +102,6 @@ export default function DevityChatGPT({ axios, setIsAINoteCreated, setIsDataLimi
         
         handleLocalStorageChange();
     }, [apiKey]);
-
 
     const handleInputTextChange = (event) => {
         setInputText(event.target.value);
@@ -265,6 +266,15 @@ export default function DevityChatGPT({ axios, setIsAINoteCreated, setIsDataLimi
         return result;
     }
 
+    function GetConversationPrompts() {
+        var promptsArray = [];
+        $("span.ai-single-prompt").each(function() {
+            promptsArray.push($(this).text());
+        });
+    
+        return promptsArray;
+    }
+
     return (
         <div className="p-panel border" style={{display:"none"}} data-panel="CHATGPT">
             <div className="p-chrome">
@@ -291,7 +301,7 @@ export default function DevityChatGPT({ axios, setIsAINoteCreated, setIsDataLimi
                             messages.length !== 0 ? messages.map((msg, index) => {
                                 let result = msg.role === "user" ? (
                                     <li key={index}>
-                                        <label>You: <span>{msg.content}</span></label>
+                                        <label>You: <span className="ai-single-prompt">{msg.content}</span></label>
                                         <button id="ai-save-single" title="Save single AI answer">
                                             <img
                                                 onClick={() => handleAISingleMessageSave(index)}
@@ -344,6 +354,20 @@ export default function DevityChatGPT({ axios, setIsAINoteCreated, setIsDataLimi
                                 }
                                 if (e.key === "Enter") {
                                     handleChatSubmit(e);
+                                    setCurrentIndex(-1);
+                                }
+                                if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+                                    const promptsArray = GetConversationPrompts().reverse();
+                                    let newIndex = currentIndex;
+                                    if (e.key === "ArrowUp" && currentIndex < promptsArray.length - 1) {
+                                        newIndex = currentIndex + 1;
+                                    } else if (e.key === "ArrowDown" && currentIndex > -1) {
+                                        newIndex = currentIndex - 1;
+                                    }
+                                    setCurrentIndex(newIndex);
+                                    if (newIndex >= 0) {
+                                        setInputText(promptsArray[newIndex]);
+                                    }
                                 }
                             }}
                         />

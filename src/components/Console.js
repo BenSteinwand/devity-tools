@@ -3,7 +3,7 @@ import $ from "jquery";
 import { useState, useContext, useEffect, useCallback } from "react";
 import { UserContext } from "../api-integration/UserContext";
 import btn_delete_sm from "../img/btn_delete_sm.png";
-import { abbreviate30Chars } from "../Utilities";
+import { abbreviate30Chars, MinimizeAll } from "../Utilities";
 const FilterCmd = "#f";
 
 
@@ -84,12 +84,12 @@ const Console = (props) =>
     // }
 
     function clearFilterTerm() {
+        MinimizeAll();
         setFilterTerm("");
         $(".filterable").filter(function() {
             $("#prompt_input").focus();
             return $(this).parent().show();
         });
-
         showAllHiddenWidget();
     }
 
@@ -104,6 +104,7 @@ const Console = (props) =>
 
     function handleKeyUp(e)
     {
+        MinimizeAll();
         if (keys_ignore.includes(e.key)) return;
 
         if (currentView === "LIBRARIES")

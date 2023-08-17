@@ -107,8 +107,14 @@ export default function DevityChatGPT({ axios, setIsAINoteCreated, setIsDataLimi
         setInputText(event.target.value);
     };
 
+    const resetTextareaHeight = () => {
+        const textarea = $("#ai-chatbox");
+        textarea.css("height", "");
+    };
+
     const handleChatSubmit = async (event) => {
         handleClearMessages();
+        resetTextareaHeight();
         event.preventDefault();
         const configuration = new Configuration({
             apiKey: apiKey,

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Configuration, OpenAIApi } from "openai";
 import "../css/index.css";
 import btn_image_config from "../img/d_btn_ctrl_config.png";
@@ -71,11 +71,12 @@ export default function DevityChatGPT({ axios, setIsAINoteCreated, setIsDataLimi
         message: ""
     });
     const [currentIndex, setCurrentIndex] = useState(-1);
+    const chatInputRef = useRef();
     const $ai_console = $("#ai_console");
 
     useEffect(() => {
+        //scrolling down to the most recent prompt
         $ai_console.scrollTop($ai_console.prop("scrollHeight"));
-
         const textarea = $("#ai-chatbox");
         const handleLongChatInput = () => {
             textarea.css("height", "auto");
@@ -87,6 +88,10 @@ export default function DevityChatGPT({ axios, setIsAINoteCreated, setIsDataLimi
             textarea.off("input", handleLongChatInput);
         };
     }, [$ai_console, messages]);
+
+    useEffect(() => {
+        setCursorToEnd(chatInputRef);
+    }, [inputText]);
 
     useEffect(() =>{
         const handleLocalStorageChange = () => {
@@ -106,6 +111,16 @@ export default function DevityChatGPT({ axios, setIsAINoteCreated, setIsDataLimi
     const handleInputTextChange = (event) => {
         setInputText(event.target.value);
     };
+
+    function setCursorToEnd(ref) {
+        const element = ref.current;
+        const valueLength = element.value.length;
+        element.focus();
+        setTimeout(() => {
+            element.selectionStart = valueLength;
+            element.selectionEnd = valueLength;
+        }, 0);
+    }
 
     const resetTextareaHeight = () => {
         const textarea = $("#ai-chatbox");
@@ -351,6 +366,7 @@ export default function DevityChatGPT({ axios, setIsAINoteCreated, setIsDataLimi
                     <form onSubmit={handleChatSubmit}>
                         <textarea 
                             id="ai-chatbox"
+                            ref={chatInputRef}
                             value={inputText} 
                             onChange={handleInputTextChange} 
                             placeholder="Type your question..."

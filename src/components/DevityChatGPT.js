@@ -112,6 +112,11 @@ export default function DevityChatGPT({ axios, setIsAINoteCreated, setIsDataLimi
         setInputText(event.target.value);
     };
 
+    const resetTextareaHeight = () => {
+        const textarea = $("#ai-chatbox");
+        textarea.css("height", "");
+    };
+
     function setCursorToEnd(ref) {
         const element = ref.current;
         const valueLength = element.value.length;
@@ -121,11 +126,6 @@ export default function DevityChatGPT({ axios, setIsAINoteCreated, setIsDataLimi
             element.selectionEnd = valueLength;
         }, 0);
     }
-
-    const resetTextareaHeight = () => {
-        const textarea = $("#ai-chatbox");
-        textarea.css("height", "");
-    };
 
     const handleChatSubmit = async (event) => {
         handleClearMessages();

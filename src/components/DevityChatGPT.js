@@ -127,6 +127,16 @@ export default function DevityChatGPT({ axios, setIsAINoteCreated, setIsDataLimi
         textarea.css("height", "");
     };
 
+    function setCursorToEnd(ref) {
+        const element = ref.current;
+        const valueLength = element.value.length;
+        element.focus();
+        setTimeout(() => {
+            element.selectionStart = valueLength;
+            element.selectionEnd = valueLength;
+        }, 0);
+    }
+
     const handleChatSubmit = async (event) => {
         handleClearMessages();
         resetTextareaHeight();

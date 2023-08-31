@@ -93,10 +93,6 @@ export default function DevityChatGPT({ axios, setIsAINoteCreated, setIsDataLimi
         setCursorToEnd(chatInputRef);
     }, [inputText]);
 
-    useEffect(() => {
-        setCursorToEnd(chatInputRef);
-    }, [inputText]);
-
     useEffect(() =>{
         const handleLocalStorageChange = () => {
             if (apiKey !== undefined && apiKey !== null && apiKey !== "") {

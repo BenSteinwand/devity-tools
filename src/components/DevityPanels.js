@@ -144,7 +144,7 @@ export default function DevityPanels({
     async function w_update(putBody, type) {
         delete putBody["key"];
         $("div[data-panel=" + type + "] .gear").addClass("rotate");
-        const result = await axios.put("/api/widgets", { ...putBody })
+        const result = await axios.put("/api/widgets", { ...putBody }, { withCredentials: true })
             .then(response => {
                 console.log(response.status, "...on update");
                 return response.data;

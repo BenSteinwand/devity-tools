@@ -1,12 +1,11 @@
 {
-    "API_URL": "https://api.devity-tools.com",  
-    "SSO_URL": "https://noladigital.net/devity-tools",
-    "DEVITY" : "https://devity-tools.com",
-    "TINYMCE_API_KEY" : "c706reknirqudytbeuz7vvwxpc7qdscxg9j4jixwm0zhqbo4",
-    "THEME_COLORS": {
-        "PRIMARY": "#007bff",
-        "SECONDARY": "#fc3"
-    },
-    "OPENAI_GPT_MODEL": "gpt-3.5-turbo",
-    "DEVITY-RSS": "https://www.noladigital.net/rss/devity-news"
-}
+ "API_URL": "http://devity.local/api",
+"SSO_URL": "https://noladigital.net",
+ "DEVITY" : "http://devity.local",
+ "TINYMCE_API_KEY" : "c706reknirqudytbeuz7vvwxpc7qdscxg9j4jixwm0zhqbo4",
+ "THEME_COLORS": {
+"PRIMARY": "#007bff",
+"SECONDARY": "#fc3"
+ },
+  "OPENAI_GPT_MODEL": "gpt-4o"
+  }
